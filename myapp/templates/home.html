@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+
+{% block title %}Tasty Bites{% endblock %}
+
+{% block content %}
+<header class="topbar">
+    <div class="brand">
+        <span class="brand-mark">✦</span>
+        <span>Tasty Bites</span>
+    </div>
+    <nav class="nav" aria-label="Main navigation">
+        <a href="#">Home</a>
+        <a href="#">Menu</a>
+        <a href="#">About</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>Welcome to Tasty Bites</h1>
+        <p>Delicious food, made with love.</p>
+        <a href="#" class="cta">View Our Menu</a>
+    </div>
+</section>
+
+<section class="menu-shell">
+    <h2 class="menu-title">Our Menu <span>✦</span></h2>
+
+    <div class="dish-grid">
+        {% for dish in dishes %}
+        <article class="dish-card">
+            <div class="dish-visual">
+                <img src="{{ dish.image }}" alt="{{ dish.name }}" />
+            </div>
+            <h4>{{ dish.name }}</h4>
+            <p>{{ dish.description }}</p>
+            <div class="price">₹{{ dish.price }}</div>
+        </article>
+        {% endfor %}
+    </div>
+
+    <div class="offer-strip">
+        <div class="offer-text">
+            <span class="offer-icon">✦</span>
+            <div>
+                <span>Special Offer!</span>
+                <small>Get 20% OFF on all orders above ₹499</small>
+            </div>
+        </div>
+        <button class="order-btn">Order Now</button>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="footer-grid">
+        <div>
+            <h3>Tasty Bites</h3>
+            <p>Good food. Good mood.<br>Great memories.</p>
+        </div>
+
+        <div>
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Menu</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </div>
+
+        <div>
+            <h3>Contact Us</h3>
+            <p>123 Food Street, Flavor City</p>
+            <p>+91 98765 43210</p>
+            <p>hello@tastybites.com</p>
+        </div>
+    </div>
+
+    <div class="copyright">© 2025 Tasty Bites. All rights reserved.</div>
+</footer>
+
+<div class="tip">
+    <span class="bulb">💡</span>
+    <span>Tip: Build one page at a time. Text often. Live inheritance to keep your code clean and DRY.</span>
+</div>
+{% endblock %}
